@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+        }
+
+        .container{
+            width:400px;
+            background:#fff;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+            color:#555;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            border-color:#667eea;
+            box-shadow:0 0 8px rgba(102,126,234,0.3);
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#667eea;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#5563d6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript Validation</h2>
+
+        <form name="myForm" onsubmit="return validateForm()">
+
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Enter your name">
+
+            <label>Father Name</label>
+            <input type="text" name="fname" placeholder="Enter father name">
+
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Enter age">
+
+            <label>Address</label>
+            <input type="text" name="address" placeholder="Enter address">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let name = document.forms["myForm"]["name"].value;
+            let fname = document.forms["myForm"]["fname"].value;
+            let age = document.forms["myForm"]["age"].value;
+            let address = document.forms["myForm"]["address"].value;
+
+            if (name === "") {
+                alert("Name must be filled out");
+                return false;
+            }
+
+            if (fname === "") {
+                alert("Father Name must be filled out");
+                return false;
+            }
+
+            if (age === "") {
+                alert("Age must be filled out");
+                return false;
+            }
+
+            if (address === "") {
+                alert("Address must be filled out");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
